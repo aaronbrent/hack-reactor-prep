@@ -531,3 +531,127 @@ function addToFront(arr, element) {
   return arr;
 }
 
+//Write a function called "addToBack".
+//
+//Given an array and an element, "addToBack" returns the given array with the given element added to the end.
+//
+//Note: It should be the SAME array, not a new array.
+//
+//var output = addToBack([1, 2], 3);
+//console.log(output); // -> [1, 2, 3]
+
+function addToBack(arr, element) {
+  arr.push(element);
+  return arr;
+}
+
+//Write a function called "computeAreaOfARectangle".
+//
+//Given the length and width of a rectangle, "computeAreaOfARectangle" returns its area.
+//
+//var output = computeAreaOfARectangle(4, 8);
+//console.log(output); // --> 32
+
+function computeAreaOfARectangle(length, width) {
+  return ( length * width );
+}
+
+//Write a function called "computePerimeterOfARectangle".
+//
+//Given a length and a width describing a rectangle, "computePerimeterOfARectangle" returns its perimter.
+//
+//var output = computePerimeterOfARectangle(5, 2);
+//console.log(output); // --> 14
+
+function computePerimeterOfARectangle(length, width) {
+  return ( (length * 2 ) + ( width * 2 ) );
+}
+
+//Write a function called "computePerimeterOfATriangle".
+//
+//Given 3 sides describing a triangle, "computePerimeterOfATriangle" returns its perimter.
+//
+//var output = computePerimeterOfATriangle(6, 4, 10);
+//console.log(output); // --> 20
+
+function computePerimeterOfATriangle(side1, side2, side3) {
+  return ( side1 + side2 + side3 );
+}
+
+//Write a function called "computeTripledAreaOfARectangle".
+//
+//Given a length and width of a rectangle, "computeTripledAreaOfARectangle" returns the rectangle's area, multiplied by 3.
+//
+//var output = computeTripledAreaOfARectangle(2, 4);
+//console.log(output); // --> 24
+
+function computeTripledAreaOfARectangle(length, width) {
+  return ( (length * width) * 3 );
+}
+
+//Write a function called "computePerimeterOfACircle".
+//
+//Given the radius of a circle, "computePerimeterOfACircle" returns its perimeter.
+//
+//var output = computePerimeterOfACircle(4);
+//console.log(output); // --> 25.132741228718345
+
+function computePerimeterOfACircle(radius) {
+  return ( (2 * Math.PI) * radius );
+}
+
+//Write a function called "computeAreaOfACircle".
+//
+//Given the radius of a circle, "computeAreaOfACircle" returns its area.
+//
+//var output = computeAreaOfACircle(4);
+//console.log(output); // --> 50.26548245743669
+
+function computeAreaOfACircle(radius) {
+  return ( Math.PI * (radius * radius) );
+}
+
+//Write a function called "computePower".
+//
+//Given a number and an exponent, "computePower" returns the given number, raised to the given exponent. 
+//
+//var output = computePower(2, 3);
+//console.log(output); // --> 8
+
+function computePower(num, exponent) {
+  return ( Math.pow( num, exponent ) );
+}
+
+//Write a function called "computeSquareRoot".
+//
+//Given a number, "computeSquareRoot" returns its square root.
+//
+//var output = computeSquareRoot(9);
+//console.log(output); // --> 3
+
+function computeSquareRoot(num) {
+  return Math.sqrt(num);
+}
+
+//Write a function called "doubleSquareRootOf".
+//
+//Given a number, "doubleSquareRootOf" returns double its square root.
+//
+//var output = doubleSquareRootOf(121);
+//console.log(output); // --> 22
+
+function doubleSquareRootOf(num) {
+  return ( ( Math.sqrt(num) ) * 2 );
+}
+
+//Write a function called "getLengthOfThreeWords".
+//
+//Given 3 words, "getLengthOfThreeWords" returns the sum of their lengths.
+//
+//var output = getLengthOfThreeWords('some', 'other', 'words');
+//console.log(output); // --> 14
+
+function getLengthOfThreeWords(word1, word2, word3) {
+  return ( word1.length + word2.length + word3.length );
+}
+
