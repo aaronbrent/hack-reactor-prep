@@ -276,4 +276,59 @@ function isOddLength(word) {
   return ( word.length % 2 !== 0 );
 }
 
+//Write a function called "isEvenLength".
+//
+//Given a word, "isEvenLength" returns whether the length of the word is even.
+//
+//var output = isEvenLength('wow');
+//console.log(output); // --> false
+
+function isEvenLength(word) {
+  return ( word.length % 2 === 0 );
+}
+
+//Write a function called "isEvenAndGreaterThanTen".
+//
+//Given a number, "isEvenAndGreaterThanTen" returns whether it is both even and greater than 10.
+//
+//var output = isEvenAndGreaterThanTen(13);
+//console.log(output); // --> false
+
+function isEvenAndGreaterThanTen(num) {
+  return ( num % 2 === 0 && num > 10 );
+}
+
+//Write a function called "average".
+//
+//Given two numbers, "average" returns their average.
+//
+//var output = average(4, 6);
+//console.log(output); // --> 5
+
+function average(num1, num2) {
+  return ( (num1 + num2) / 2 );
+}
+
+//Write a function called "computeAreaOfATriangle".
+//
+//Given the base and height of a triangle, "computeAreaOfATriangle" returns its area.
+//
+//var output = computeAreaOfATriangle(4, 6);
+//console.log(output); // --> 12
+
+function computeAreaOfATriangle(base, height) {
+  return ( (base * height) / 2);
+}
+
+//Write a function called "cube".
+//
+//Given a number, "cube" returns the cube of that number.
+//
+//var output = cube(3);
+//console.log(output); // --> 27
+
+function cube(num) {
+  return ( num * num * num );
+}
+
 
