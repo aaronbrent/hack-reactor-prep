@@ -655,3 +655,203 @@ function getLengthOfThreeWords(word1, word2, word3) {
   return ( word1.length + word2.length + word3.length );
 }
 
+//Write a function called "joinArrays".
+//
+//Given two arrays, "joinArrays" returns an array with the elements of "arr1" in order, followed by the elementsin "arr2". 
+//
+//var output = joinArrays([1, 2], [3, 4]);
+//console.log(output); // --> [1, 2, 3, 4]
+
+function joinArrays(arr1, arr2) {
+  var output = arr1.concat(arr2);
+  return output;
+}
+
+//Write a function called "getElementsAfter".
+//
+//Given an array and an index, "getElementsAfter" returns a new array with all the elements after (but not including) the given index.
+//
+//var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2); 
+//console.log(output); // --> ['d', 'e']
+
+function getElementsAfter(array, n) {
+ var output = array.slice(n + 1);
+ return output;
+}
+
+//Write a function called "getElementsUpTo".
+//
+//Given an array and a index, "getElementsUpTo", returns an array with all the elements up until, but not including, the element at the given index.
+//
+//Notes:
+//* In order to do this you should be familiar with the 'slice' method.
+//
+//var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3) 
+//console.log(output); // --> ['a', 'b', 'c']
+
+function getElementsUpTo(array, n) {
+  var output = array.slice(0, n);
+  return output;
+}
+
+//Write a function called "getAllElementsButFirst".
+//
+//Given an array, "getAllElementsButFirst" returns an array with all the elements but the first.
+//
+//var input = [1, 2, 3, 4];
+//var output = getAllElementsButFirst(input);
+//console.log(output); // --> [2, 3, 4]
+
+function getAllElementsButFirst(array) {
+  var output = array.slice(1);
+  return output;
+}
+
+//Write a function called "getAllElementsButLast".
+//
+//Given an array, "getAllElementsButLast" returns an array with all the elements but the last.
+//
+//var input = [1, 2, 3, 4];
+//var output = getAllElementsButLast(input);
+//console.log(output); // --> [1, 2 , 3]
+
+function getAllElementsButLast(array) {
+  var output = array.splice(0, array.length -1);
+  return output;
+}
+
+//Write a function called "removeFromFront".
+//
+//Given an array, "removeFromFront" returns the given array with its first element removed.
+//
+//Notes:
+//* You should be familiar with the method 'shift'.
+//
+//var output = removeFromFront([1, 2, 3]);
+//console.log(output); // --> [2, 3]
+
+function removeFromFront(arr) {
+ arr.shift();
+ return arr;
+}
+
+//Write a function called "removeFromBackOfNew".
+//
+//Given an array, "removeFromBackOfNew" returns a new array containing all but the last element of the given array.
+//
+//Notes:
+//* You should be familiar with the 'slice' method.
+//
+//var arr = [1, 2, 3];
+//var output = removeFromBackOfNew(arr);
+//console.log(output); // --> [1, 2]
+//console.log(arr); // --> [1, 2, 3]
+
+function removeFromBackOfNew(arr) {
+  var output = arr.slice(0, arr.length -1);
+  return output;
+}
+
+//Write a function called "removeFromFrontOfNew".
+//
+//Given an array, "removeFromFrontOfNew" returns a new array containing all but the first element of the given array.
+//
+//Notes:
+//* You should be familiar with the 'slice' method.
+//
+//var arr = [1, 2, 3];
+//var output = removeFromFrontOfNew(arr);
+//console.log(output); // --> [2, 3]
+//console.log(arr); // --> [1, 2, 3]
+
+function removeFromFrontOfNew(arr) {
+  var output = arr.slice(1, arr.length);
+  return output;
+}
+
+//Write a function called "countCharacter".
+//
+//Given a string input and a character, "countCharacter" returns the number of occurences of a given character in the given string.
+//
+//var output = countCharacter('I am a hacker', 'a');
+//console.log(output); // --> 3
+
+function countCharacter(str, char) {
+  var count = 0;
+  for (var i = 0; i < str.length; i++){
+    if (str[i] === char) {
+      count++;
+    } 
+  }
+  return count;
+}
+
+//Write a function called "getAllLetters".
+//
+//Given a word, "getAllLetters" returns an array containing every character in the word. 
+//
+//Notes:
+//* If given an empty string, it should return an empty array.
+//
+//var output = getAllLetters('Radagast');
+//console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
+
+function getAllLetters(str) {
+  var output = str.split('');
+  return output;
+}
+
+//Write a function called "getAllWords".
+//
+//Given a sentence, "getAllWords" returns an array containing every word in the sentence. 
+//
+//Notes:
+//* If given an empty string, it should return an empty array.
+//
+//var output = getAllWords('Radagast the Brown');
+//console.log(output); // --> ['Radagast', 'the', 'Brown']
+
+function getAllWords(str) {
+  var output = [];
+  if (str.length > 0) { 
+    output = str.split(' ');
+  }
+  return output;
+}
+
+//Write a function called "countWords".
+//
+//Given a string, "countWords" returns an object where each key is a word in the given string, with its value being how many times that word appeared in th given  string. 
+//
+//Notes:
+//* If given an empty string, it should return an empty object.
+//
+//var output = countWords('ask a bunch get a bunch'); 
+//console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
+
+function countWords(str) {
+  var arr = str.split(' ');
+  var obj = { };
+  for (var i = 0, j = arr.length; i < j; i++) {
+    if (arr.length > 1) {
+      obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+    }
+  }
+  return obj;
+}
+
+//Write a function called "removeFromBack".
+//
+//Given an array, "removeFromBack" returns the given array with its last element removed.
+//
+//Notes:
+//* You should be familiar with the method 'pop'.
+//
+//var output = removeFromBack([1, 2, 3]);
+//console.log(output); // --> [1, 2]
+
+function removeFromBack(arr) {
+  arr.pop();
+  return arr;
+}
+
