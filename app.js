@@ -1142,3 +1142,271 @@ function convertDoubleSpaceToSingle(str) {
   var output = strArr.join(" ");
   return output;
 }
+
+//Write a function called "joinThreeArrays".
+//
+//Given three arrays, "joinThreeArrays" returns an array with the elements of "arr1" in order followed by the elements in "arr2" in order followed by the elements of "arr3" in order.
+//
+//var output = joinThreeArrays([1, 2], [3, 4], [5, 6]);
+//console.log(output); // --> [1, 2, 3, 4, 5, 6]
+
+function joinThreeArrays(arr1, arr2, arr3) {
+  var numbers = arr1.concat(arr2);
+  var outputnumbers = numbers.concat(arr3);
+  return(outputnumbers);
+}
+
+var output = joinThreeArrays([1, 2], [3, 4], [5, 6]);
+console.log(output);
+
+//Write a function called "addToFrontOfNew".
+//
+//Given an array and an element, "addToFrontOfNew" returns a new array containing all the elements of the given array, with the given element added to the front.
+//
+//Important: It should be a NEW array instance, not the original array instance.
+//
+//var input = [1, 2];
+//var output = addToFrontOfNew(input, 3);
+//console.log(output); // --> [3, 1, 2];
+//console.log(input); --> [1, 2]
+
+function addToFrontOfNew(arr, element) {
+  var numbers = [];
+  numbers.push(element);
+  var output = numbers.concat(arr);
+  return output;
+}
+
+//Write a function called "addToBackNew".
+//
+//Given an array and an element, "addToBackNew" returns a clone of the given array, with the given element added to the end.
+//
+//Important: It should be a NEW array instance, not the original array instance.
+//
+//var input = [1, 2];
+//var output = addToBackOfNew(input, 3);
+//console.log(input); // --> [1, 2]
+//console.log(output); // --> [1, 2, 3]
+
+function addToBackOfNew(arr, element) {
+  var output = arr.concat(element);
+  return output;
+}
+
+//Write a function called "getAllElementsButNth".
+//
+//Given an array and an index, "getAllElementsButNth" returns an array with all the elements but the nth.
+//
+//var output = getAllElementsButNth(['a', 'b', 'c'], 1);
+//console.log(output); // --> ['a', 'c']
+
+function getAllElementsButNth(array, n) {
+  var output = [];
+  for (var i = 0; i < array.length; i++){
+    if (i !== n){
+      output.push(array[i]);
+    }
+  }
+  return output;
+}
+
+//Write a function called "areValidCredentials".
+//
+//Given a name and a password, "areValidCredentials", returns true if the name is longer than 3 characters, AND, the password is at least 8 characters long. Otherwise it returns false.
+//
+//var output = areValidCredentials('Ritu', 'mylongpassword')
+//console.log(output); // --> true
+
+function areValidCredentials(name, password) {
+  return ( name.length > 3 && password.length > 8 );
+}
+
+//Write a function called "getIndexOf".
+//
+//Given a character and a string, "getIndexOf" returns the first position of the given character in the given string.
+//
+//Notes:
+//* Strings are zero indexed, meaning the first character in a string is at position 0.
+//* When a string contains more than one occurrence of a character, it should return the index of its first occurrence.
+//* If the character does not exist in the string, it should return -1.
+//* Do not use the native indexOf function in your implementation.
+//
+//var output = getIndexOf('a', 'I am a hacker');
+//console.log(output); // --> 2
+
+function getIndexOf(char, str) {
+  var output = -1;
+  for (var i = 0; i < str.length; i++){
+    if (str[i] === char){
+      output = i;
+      return output;
+    }
+  }
+  return output;
+}
+
+//Write a function called "findMinLengthOfThreeWords".
+//
+//Given 3 words, "findMinLengthOfThreeWords" returns the length of the shortest word.
+//
+//var output = findMinLengthOfThreeWords('a', 'be', 'see');
+//console.log(output); // --> 1
+
+function findMinLengthOfThreeWords(word1, word2, word3) {
+  var lengths = [word1.length, word2.length, word3.length];
+  lengths.sort();
+  var output = lengths[0];
+  return output;
+}
+
+//Write a function called "findMaxLengthOfThreeWords".
+//
+//Given 3 words, "findMaxLengthOfThreeWords" returns the length of the longest word.
+//
+//var output = findMaxLengthOfThreeWords('a', 'be', 'see');
+//console.log(output); // --> 3
+
+function findMaxLengthOfThreeWords(word1, word2, word3) {
+  var lengths = [word1.length, word2.length, word3.length];
+  lengths.sort().reverse();
+  return lengths[0];
+}
+
+//Write a function called "getElementsThatEqual10AtProperty".
+//
+//Given an object and a key, "getElementsThatEqual10AtProperty" returns an array containing all the elements of the array located at the given key that are equal to ten.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the array contains no elements equal to 10, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array.
+//
+//var obj = {
+//  key: [1000, 10, 50, 10]
+//};
+//var output = getElementsThatEqual10AtProperty(obj, 'key');
+//console.log(output); // --> [10, 10]
+
+function getElementsThatEqual10AtProperty(obj, key) {
+  var output = [];
+  for (var k in obj){
+    if (k === key){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] === 10){
+          output.push(obj[k][i]);
+        }
+      }
+    }
+  }
+  return output
+}
+
+//Write a function called "select".
+//
+//Given an array and an object, "select" returns a new object whose properties are those in the given object AND whose keys are present in the given array. 
+//
+//Notes:
+//* If keys are present in the given array, but are not in the given object, it should ignore them. 
+//* It does not modify the passed in object.
+//
+//
+//var arr = ['a', 'c', 'e'];
+//var obj = {
+//  a: 1,
+//  b: 2,
+//  c: 3,
+//  d: 4
+//};
+//var output = select(arr, obj);
+//console.log(output); // --> { a: 1, c: 3 }
+
+function select(arr, obj) {
+  var output = {};
+  for (var i = 0; i < arr.length; i++){
+    for (var key in obj){
+      if (arr[i] === key){
+        output[arr[i]] = obj[key];
+      }
+    }
+  }
+  return output;
+}
+
+//Write a function called "getElementsLessThan100AtProperty".
+//
+//Given an object and a key, "getElementsLessThan100AtProperty" returns an array containing all the elements of the array located at the given key that are less than 100.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the array contains no elements less than 100, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array.
+//
+//var obj = {
+//  key: [1000, 20, 50, 500]
+//};
+//var output = getElementsLessThan100AtProperty(obj, 'key');
+//console.log(output); // --> [20, 50]
+
+function getElementsLessThan100AtProperty(obj, key) {
+  var output = [];
+  for (var k in obj){
+    if (k === key){
+      for (var i = 0; i < obj[key].length; i++){
+        if (obj[k][i] < 100){
+          output.push(obj[k][i])
+        }
+      }
+    }
+  }
+  return output;
+}
+
+//Write a function called "countAllCharacters".
+//
+//Given a string, "countAllCharacters" returns an object where each key is a character in the given string. The value of each key should be how many times each character appeared in the given string.
+//
+//Notes:
+//* If given an empty string, countAllCharacters should return an empty object.
+//
+//var output = countAllCharacters('banana');
+//console.log(output); // --> {b: 1, a: 3, n: 2}
+
+function countAllCharacters(str) {
+  var object = {};
+  for (var i = 0; i < str.length; i++){
+    object[str[i]] = str.split(str[i]).length - 1;   
+  }
+  return object;
+}
+
+//Write a function called "getElementsGreaterThan10AtProperty".
+//
+//Given an object and a key, "getElementsGreaterThan10AtProperty" returns an array containing the elements within the array, located at the given key, that are greater than 10.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the array contains no elements greater than 10, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array. 
+//
+//var obj = {
+//  key: [1, 20, 30]
+//};
+//var output = getElementsGreaterThan10AtProperty(obj, 'key');
+//console.log(output); // --> [20, 30]
+
+function getElementsGreaterThan10AtProperty(obj, key) {
+  var numbers = [];
+  for (var k in obj){
+    if (k === key){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] > 10){
+          numbers.push(obj[k][i]);
+        } 
+    }
+   }
+  }
+  return numbers;
+}
