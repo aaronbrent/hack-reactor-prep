@@ -1575,3 +1575,82 @@ function computeAverageOfNumbers(nums) {
   }
   return output;
 }
+
+//Write a function called "getAverageOfElementsAtProperty".
+//
+//Given an object and a key, "getAverageOfElementsAtProperty" returns the average of all the elements in the array located at the given key. 
+//
+//Notes:
+//* If the array at the given key is empty, it should return 0.
+//* If the property at the given key is not an array, it should return 0.
+//* If there is no property at the given key, it should return 0.
+//
+//
+//var obj = {
+//  key: [1, 2, 3]
+//};
+//var output = getAverageOfElementsAtProperty(obj, 'key');
+//console.log(output); // --> 2
+
+Write a function called "getAverageOfElementsAtProperty".
+
+Given an object and a key, "getAverageOfElementsAtProperty" returns the average of all the elements in the array located at the given key. 
+
+Notes:
+* If the array at the given key is empty, it should return 0.
+* If the property at the given key is not an array, it should return 0.
+* If there is no property at the given key, it should return 0.
+
+
+var obj = {
+  key: [1, 2, 3]
+};
+var output = getAverageOfElementsAtProperty(obj, 'key');
+console.log(output); // --> 2
+
+//Write a function called "getEvenLengthWordsAtProperty".
+//
+//Given an object and a key, "getEvenLengthWordsAtProperty" returns an array containing all the even length word elements of the array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If it contains no even length elements, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array.
+//
+//var obj = {
+//  key: ['a', 'long', 'game']
+//};
+//var output = getEvenLengthWordsAtProperty(obj, 'key');
+//console.log(output); // --> ['long', 'game']
+
+function getEvenLengthWordsAtProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (k === key){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i].length % 2 === 0){
+          outputs.push(obj[k][i]);
+        }
+      }  
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "filterOddLengthWords".
+//
+//Given an array of string, "filterOddLengthWords" returns an array containing only the elements of the given array whose lengths are odd numbers.
+//
+//var output = filterOddLengthWords(['there', 'it', 'is', 'now']);
+//console.log(output); // --> ['there', "now']
+
+function filterOddLengthWords(words) {
+  var outputs = [];
+  for (var i = 0; i < words.length; i++){
+    if (words[i].length % 2 !== 0){
+      outputs.push(words[i]); 
+    }
+  }
+  return outputs;
+}
