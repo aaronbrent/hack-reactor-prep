@@ -1410,3 +1410,168 @@ function getElementsGreaterThan10AtProperty(obj, key) {
   }
   return numbers;
 }
+
+//Given an array of elements, and a "discarder" parameter, "removeElement" returns an array containing the items in the given array that do not match the "discarder" parameter.
+//
+//Notes:
+//* If all the elements match, it should return an empty array.
+//* If an empty array is passed in, it should return an empty array.
+//
+//var output = removeElement([1, 2, 3, 2, 1], 2);
+//console.log(output); // --> [1, 3, 1]
+
+function removeElement(array, discarder) {
+  var outputs = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i] !== discarder){
+      outputs.push(array[i]);
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "getFirstElementOfProperty".
+//
+//Given an object and a key, "getFirstElementOfProperty" returns the first element of the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* If the property at the given key is not an array, it should return undefined.
+//* If there is no property at the key, it should return undefined.
+//
+//
+//var obj = {
+//  key: [1, 2, 4]
+//};
+//var output = getFirstElementOfProperty(obj, 'key');
+//console.log(output); // --> 1
+
+function getFirstElementOfProperty(obj, key) {
+  
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      var output = obj[k][0];
+      return output;
+      }
+    }
+}
+//
+//Write a function called "getNthElementOfProperty".
+//
+//Given an object and a key, "getNthElementOfProperty" returns the nth element of an array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* If n is out of range, it should return undefined.
+//* If the property at the given key is not an array, it should return undefined.
+//* If there is no property at the key, it should return undefined.
+//
+//var obj = {
+//  key: [1, 2, 6]
+//};
+//var output = getNthElementOfProperty(obj, 'key', 1);
+//console.log(output); // --> 2
+
+function getNthElementOfProperty(obj, key, n) {
+  for (var k in obj){
+    if (k === key){
+      return obj[k][n];
+    }
+  }
+}
+
+//Write a function called "getLastElementOfProperty".
+//
+//Given an object and a key, "getLastElementOfProperty" returns the last element of an array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* if the property at the given key is not an array, it should return undefined.
+//* If there is no property at the key, it should return undefined.
+//
+//var obj = {
+//  key: [1, 2, 5]
+//};
+//var output = getLastElementOfProperty(obj, 'key');
+//console.log(output); // --> 5
+
+function getLastElementOfProperty(obj, key) {
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      var output = obj[k].reverse();
+      return output[0];
+    }
+  }
+}
+
+//Write a function called "keep".
+//
+//Given an array and a keeper element, "keep" returns an array containing the items that match the given keeper element.
+//
+//Notes:
+//* If no elements match, "keep" should return an empty array.
+//
+//var output = keep([1, 2, 3, 2, 1], 2) 
+//console.log(output); --> [2, 2]
+
+function keep(array, keeper) {
+  var outputs = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i] === keeper){
+      outputs.push(array[i]);
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "getOddLengthWordsAtProperty".
+//
+//Given an object and a key, "getOddLengthWordsAtProperty" returns an array containing all the odd length word elements of the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If it contains no odd length elements, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the given key, it should return an empty array.
+//
+//var obj = {
+//  key: ['It', 'has', 'some', 'words']
+//};
+//var output = getOddLengthWordsAtProperty(obj, 'key');
+//console.log(output); // --> ['has', 'words']
+
+function getOddLengthWordsAtProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (key === k && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i].length % 2 !== 0){
+          outputs.push(obj[k][i]);
+        }
+      }
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "computeAverageOfNumbers".
+//
+//Given an array of numbers, "computeAverageOfNumbers" returns their average. 
+//
+//Notes:
+//* If given an empty array, it should return 0.
+//
+//var input = [1,2,3,4,5];
+//var output = computeAverageOfNumbers(input);
+//console.log(output); // --> 3
+
+function computeAverageOfNumbers(nums) {
+  var output = 0;
+  if (nums.length > 0){
+    for (var i = 0; i < nums.length; i++){
+      output += nums[i];
+    }
+    return output / nums.length; 
+  }
+  return output;
+}
