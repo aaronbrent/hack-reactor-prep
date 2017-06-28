@@ -1654,3 +1654,264 @@ function filterOddLengthWords(words) {
   }
   return outputs;
 }
+
+//Write a function called "getSquaredElementsAtProperty".
+//
+//Given an object and a key, "getSquaredElementsAtProperty" returns an array containing all the squared elements of the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array.
+//
+//var obj = {
+//  key: [2, 1, 5]
+//};
+//var output = getSquaredElementsAtProperty(obj, 'key');
+//console.log(output); // --> [4, 1, 25]
+
+function getSquaredElementsAtProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length; i++){
+        outputs.push(obj[k][i]*obj[k][i]);
+      }
+    }
+  }
+  return outputs;
+}
+
+//Given an object and a key, "getOddElementsAtProperty" returns an array containing all the odd elements of the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If it contains no odd elements, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the key, it should return an empty array.
+//
+//var obj = {
+//  key: [1, 2, 3, 4, 5]
+//};
+//var output = getOddElementsAtProperty(obj, 'key');
+//console.log(output); // --> [1, 3, 5]
+
+function getOddElementsAtProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] % 2 !== 0){
+          outputs.push(obj[k][i]);
+        }
+      }  
+    }   
+  }
+  return outputs;
+}
+
+//Given an object and a key, "getEvenElementsAtProperty" returns an array containing all the even elements of the array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the array contains no even elements, it should return an empty array.
+//* If the property at the given key is not an array, it should return an empty array.
+//* If there is no property at the given key, it should return an empty array.
+//
+//var obj = {
+//  key: [1000, 11, 50, 17]
+//};
+//var output = getEvenElementsAtProperty(obj, 'key');
+//console.log(output); // --> [1000, 50]
+
+function getEvenElementsAtProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] % 2 === 0){
+          outputs.push(obj[k][i]);
+        }
+      }
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "filterEvenLengthWords".
+//
+//Given an array of strings, "filterEvenLengthWords" returns an array containing only the elements of the given array whose length is an even number.
+//
+//var output = filterEvenLengthWords(['word', 'words', 'word', 'words']);
+//console.log(output); // --> ['word', 'word']
+
+function filterEvenLengthWords(words) {
+  var outputs = [];
+  for (var i = 0; i < words.length; i++){
+    if (words[i].length % 2 === 0){
+      outputs.push(words[i]);
+    }
+  }
+  return outputs;
+}
+
+//Given an array, "getLengthOfLongestElement" returns the length of the longest string in the given array.
+//
+//Notes:
+//* It should return 0 if the array is empty.
+//
+//var output = getLengthOfLongestElement(['one', 'two', 'three']);
+//console.log(output); // --> 5
+
+function getLengthOfLongestElement(arr) {
+  var largest = 0;
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i].length > largest){
+      largest = arr[i].length;
+    }
+  }
+  return largest;
+}
+
+//Write a function called "getSmallestElementAtProperty".
+//
+//Given an object and a key, "getSmallestElementAtProperty" returns the smallest element in the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* If the property at the given key is not an array, it should return undefined. 
+//* If there is no property at the key, it should return undefined.
+//
+//var obj = {
+//  key: [2, 1, 5]
+//};
+//var output = getSmallestElementAtProperty(obj, 'key');
+//console.log(output); // --> 1
+
+function getSmallestElementAtProperty(obj, key) {
+  
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      var smallest = obj[k][0];
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] < smallest){
+          smallest = obj[k][i];
+        }
+      }
+    }
+  }
+  return smallest;
+}
+
+//Write a function called "getLargestElementAtProperty".
+//
+//Given an object and a key, "getLargestElementAtProperty" returns the largest element in the array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* If the property at the given key is not an array, it should return undefined.
+//* If there is no property at the key, it should return undefined.
+//
+//var obj = {
+//  key: [1, 2, 4]
+//};
+//var output = getLargestElementAtProperty(obj, 'key');
+//console.log(output); // --> 4
+
+function getLargestElementAtProperty(obj, key) {
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      var largest = obj[k][0];
+      for (var i = 0; i < obj[k].length; i++){
+        if (obj[k][i] > largest){
+          largest = obj[k][i];
+        }
+      }  
+    }
+  }
+  return largest;
+}
+
+//Write a function called "getAllButLastElementOfProperty".
+//
+//Given an object and a key, "getAllButLastElementOfProperty" returns an array containing all but the last element of the array located at the given key.
+//
+//Notes:
+//* If the array is empty, it should return an empty array.
+//* If the property at the given key is not an array, it return an empty array.
+//* If there is no property at the key, it should return an empty array. 
+//
+//var obj = {
+//  key: [1, 2, 3]
+//};
+//var output = getAllButLastElementOfProperty(obj, 'key');
+//console.log(output); // --> [1,2]
+
+function getAllButLastElementOfProperty(obj, key) {
+  var outputs = [];
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length - 1; i++){
+        outputs.push(obj[k][i]);
+      }
+    }
+  }
+  return outputs;
+}
+
+//Write a function called "getElementOfArrayProperty".
+//
+//Given an object, a key, and a numerical index, "getElementOfArrayProperty" returns the value of the element at the given index of the array located within the given object at the given key.
+//
+//Notes:
+//* If the array is empty, it should return undefined.
+//* If the given index is out of range of the array located at the given key, it should return undefined.
+//* If the property at the given key is not an array, it should return undefined.
+//* If there is no property at the key, it should return undefined. 
+//
+//var obj = {
+// key: ['Jamil', 'Albrey']
+//};
+//var output = getElementOfArrayProperty(obj, 'key', 0); 
+//console.log(output); // --> 'Jamil'
+
+function getElementOfArrayProperty(obj, key, index) {
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      var output = obj[k][index];
+    }
+  }
+  return output;
+}
+
+//Write a function called "squareElements".
+//
+//Given a array of numbers, "squareElements" should return a new array where each element is the square of the element of the given array.
+//
+//var output = squareElements([1, 2, 3]);
+//console.log(output); // --> [1, 4, 9]
+
+function squareElements(arr) {
+  var outputs = [];
+  for (var i = 0; i < arr.length; i++){
+    outputs.push(arr[i] * arr[i]);
+  }
+  return outputs;
+}
+
+//Write a function called "filterOddElements".
+//
+//Given an array of numbers, "filterOddElements" returns an array containing only the odd numbers of the given array.
+//
+//var output = filterOddElements([1, 2, 3, 4, 5]);
+//console.log(output); // --> [1, 3, 5]
+
+function filterOddElements(arr) {
+  var outputs = [];
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] % 2 !== 0){
+      outputs.push(arr[i]);
+    }
+  }
+  return outputs;
+}
