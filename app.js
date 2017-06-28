@@ -1915,3 +1915,208 @@ function filterOddElements(arr) {
   }
   return outputs;
 }
+
+//Write a function called "computeProductOfAllElements".
+//
+//Given an array of numbers, "computeProductOfAllElements" returns the products of all the elements in the given array.
+//
+//Notes:
+//* If given array is empty, it should return 0.
+//
+//var output = computeProductOfAllElements([2, 5, 6]);
+//console.log(output); // --> 60
+
+function computeProductOfAllElements(arr) {
+  var output = 0;
+  if (arr.length > 0){
+    output = 1;
+    for (var i = 0; i < arr.length; i++){
+      output *= arr[i];
+    }
+  }
+  return output;
+}
+
+//Write a function called "filterEvenElements".
+//
+//Given an array of numbers, "filterEvenElements" returns an array containing only the even numbers of the given array.
+//
+//var output = filterEvenElements([2, 3, 4, 5, 6]);
+//console.log(output); // --> [2, 4, 6]
+
+function filterEvenElements(arr) {
+  var evens = [];
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] % 2 === 0){
+      evens.push(arr[i]);
+    }
+  }
+  return evens;
+}
+
+//Write a function called "getLengthOfShortestElement".
+//
+//Given an array, "getLengthOfShortestElement" returns the length of the shortest string in the given array.
+//
+//Notes:
+//* It should return 0 if the array is empty.
+//
+//var output = getLengthOfShortestElement(['one', 'two', 'three']);
+//console.log(output); // --> 3
+
+function getLengthOfShortestElement(arr) {
+  var length = 0;
+  if (arr.length > 0){
+    length = arr[0].length;
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i].length < length){
+        length = arr[i].length;
+      }
+    }
+  }
+  return length;
+}
+
+//Write a function called "getLongestElement".
+//
+//Given an array, "getLongestElement" returns the longest string in the given array.
+//
+//Notes:
+//* If there are ties, it returns the first element to appear.
+//* If the array is empty, it should return an empty string.
+//
+//var output = getLongestElement(['one', 'two', 'three']);
+//console.log(output); // --> 'three'
+
+function getLongestElement(arr) {
+  var longest = '';
+  if (arr.length > 0){
+    longest = arr[0];
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i].length > longest.length){
+        longest = arr[i];
+      }
+    }
+  }
+  return longest;
+}
+
+//Write a function called "findSmallestElement".
+//
+//Given an array of numbers, "findSmallestElement" returns the smallest number within the given array.
+//
+//Notes:
+//* If the given array is empty, it should return 0.
+//
+//var output = findSmallestElement([4, 1, 9, 10]);
+//console.log(output); // --> 1
+
+function findSmallestElement(arr) {
+  var smallest = 0;
+  if (arr.length > 0){
+    smallest = arr[0];
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i] < smallest){
+        smallest = arr[i];
+      }
+    }
+  }
+  return smallest;
+}
+
+//Write a function called "findShortestElement".
+//
+//Given an array, "findShortestElement" returns the shortest string within the given array.
+//
+//Notes:
+//* If there are ties, it should return the first element to appear.
+//* If the given array is empty, it should return an empty string.
+//
+//var output = findShortestElement(['a', 'two', 'three']);
+//console.log(output); // --> 'a'
+
+function findShortestElement(arr) {
+  var shortest = '';
+  if (arr.length > 0){
+    shortest = arr[0];
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i].length < shortest.length){
+        shortest = arr[i]; 
+      }
+    }
+  }
+  return shortest;
+}
+
+//Write a function called "getLargestElement".
+//
+//Given an array, "getLargestElement" returns the largest number in the given array.
+//
+//Notes:
+//* It should return 0 if the array is empty.
+//
+//var output = getLargestElement([5, 2, 8, 3]);
+//console.log(output); // --> 8;
+
+function getLargestElement(arr) {
+  var largest = 0;
+  if (arr.length > 0){
+    largest = arr[0];
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i] > largest){
+        largest = arr[i];
+      }
+    }
+  }
+  return largest;
+}
+
+//Write a function called "computeSumOfAllElements".
+//
+//Given an array of numbers, "computeSumOfAllElements" returns the sum of all the elements in the given array.
+//
+//var output = computeSumOfAllElements([1, 2, 3])
+//console.log(output); // --> 6
+
+function computeSumOfAllElements(arr) {
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++){
+    sum += arr[i]; 
+  }
+  return sum;
+}
+
+//Write a function called "calculateBillTotal".
+//
+//Given the pre tax and pre tip amount of a meal, "calculateBillTotal" returns the total amount due after tax and tip.
+//
+//Notes:
+//* Assume that sales tax is 9.5% and tip is 15%.
+//* Do NOT tip on the sales tax, only on the pre tip amount.
+//
+//var output = calculateBillTotal(20);
+//console.log(output); // --> 24.9
+
+function calculateBillTotal(preTaxAndTipAmount) {
+  var total = (preTaxAndTipAmount * 1.095) + (preTaxAndTipAmount * 0.15);
+  return total;
+}
+
+//Write a function called "getStringLength".
+//
+//Given a string, "getStringLength" returns the length of the given string.
+//
+//Notes:
+//* Do NOT use any native 'length' methods.
+//* You might consider using 'substring' or 'slice' as alternatives.
+//
+//var output = getStringLength('hello');
+//console.log(output); // --> 5
+
+function getStringLength(string) {
+  var result = 0;
+  while (string[result] !== undefined){
+    result++;
+  }
+  return result;
+}
