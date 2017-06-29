@@ -2120,3 +2120,262 @@ function getStringLength(string) {
   }
   return result;
 }
+
+//Write a function called "joinArrayOfArrays".
+//
+//Given an array of arrays, "joinArrayOfArrays" returns a single array containing the elements of the nested arrays.
+//
+//var output = joinArrayOfArrays([[1, 4], [true, false], ['x', 'y']]);
+//console.log(output); // --> [1, 4, true, false, 'x', 'y']
+
+function joinArrayOfArrays(arr) {
+  var joinedArray = [];
+  for (var i = 0; i < arr.length; i++){
+    joinedArray = joinedArray.concat(arr[i]);
+  }
+  return joinedArray;
+}
+
+//Write a function called "getProductOfAllElementsAtProperty".
+//
+//Given an object and a key, "getProductOfAllElementsAtProperty" returns the product of all the elements in the array located at the given key. 
+
+function getProductOfAllElementsAtProperty(obj, key) {
+  var product = 0;
+  for (var k in obj){
+    if (obj[k].length > 0 && k === key && Array.isArray(obj[k])){
+      product = obj[k][0];
+      for (var i = 0; i < obj[k].length; i++){
+        product *= obj[k][i];
+      }
+    }
+  }
+  return product;
+}
+
+//Write a function called "sumDigits".
+//
+//Given a number, "sumDigits" returns the sum of all its digits.
+//
+//var output = sumDigits(1148);
+//console.log(output); // --> 14
+//
+//If the number is negative, the first digit should count as negative.
+//
+//var output = sumDigits(-316);
+//console.log(output); // --> 4
+
+Write a function called "sumDigits".
+
+Given a number, "sumDigits" returns the sum of all its digits.
+
+var output = sumDigits(1148);
+console.log(output); // --> 14
+
+If the number is negative, the first digit should count as negative.
+
+var output = sumDigits(-316);
+console.log(output); // --> 4
+
+//Write a function called "getSumOfAllElementsAtProperty".
+//
+//Given an object and a key, "getSumOfAllElementsAtProperty" returns the sum of all the elements in the array located at the given key. 
+//
+//Notes:
+//* If the array is empty, it should return 0.
+//* If the property at the given key is not an array, it should return 0.
+//* If there is no property at the key, it should return 0.
+//
+//var obj = {
+//  key: [4, 1, 8]
+//};
+//var output = getSumOfAllElementsAtProperty(obj, 'key');
+//console.log(output); // --> 13
+
+function getSumOfAllElementsAtProperty(obj, key) {
+  var sum = 0;
+  for (var k in obj){
+    if (k === key && Array.isArray(obj[k])){
+      for (var i = 0; i < obj[k].length; i++){
+        sum += obj[k][i];
+      }
+    }
+  }
+  return sum;
+}
+
+//Write a function called "findShortestWordAmongMixedElements".
+//
+//Given an array, "findShortestWordAmongMixedElements" returns the shortest string within the given array.
+//
+//Notes:
+//* If there are ties, it should return the first element to appear in the given array.
+//* Expect the given array to have values other than strings.
+//* If the given array is empty, it should return an empty string.
+//* If the given array contains no strings, it should return an empty string.
+//
+//var output = findShortestWordAmongMixedElements([4, 'two', 2, 'three']);
+//console.log(output); // --> 'two'
+
+function findShortestWordAmongMixedElements(arr) {
+  var shortestWord = '';
+  var strArr = [];
+  for (var i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'string'){
+        strArr.push(arr[i]) ; 
+      }
+  }
+  if (strArr.length > 0){
+    shortestWord = strArr[0];
+  }
+  for (var j = 0; j < strArr.length; j++){
+    if (strArr[j].length < shortestWord.length){
+      shortestWord = strArr[j];
+    }
+  }
+  return shortestWord;
+}
+
+//Write a function called "findSmallestNumberAmongMixedElements".
+//
+//Given an array of mixed elements, "findSmallestNumberAmongMixedElements" returns the smallest number within the given array.
+//
+//Notes:
+//* If the given array is empty, it should return 0.
+//* If the array contains no numbers, it should return 0.
+//
+//var output = findSmallestNumberAmongMixedElements([4, 'lincoln', 9, 'octopus']);
+//console.log(output); // --> 4
+
+function findSmallestNumberAmongMixedElements(arr) {
+  var numArr = [];
+  var smallestNum = 0;
+  for (var i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'number'){
+      numArr.push(arr[i]);
+    }
+  }
+  if (numArr.length > 0){
+    smallestNum = numArr[0];
+  }
+  for (var j = 0; j < numArr.length; j++){
+    if (numArr[j] < smallestNum){
+      smallestNum = numArr[j];
+    }
+  }
+  return smallestNum;
+}
+
+//Write a function called "getLongestWordOfMixedElements".
+//
+//Given an array of mixed types, "getLongestWordOfMixedElements" returns the longest string in the given array.
+//
+//Notes:
+//* If the array is empty, it should return an empty string (""). 
+//* If the array contains no strings; it should return an empty string.
+//
+//var output = getLongestWordOfMixedElements([3, 'word', 5, 'up', 3, 1]);
+//console.log(output); // --> 'word'
+
+function getLongestWordOfMixedElements(arr) {
+  var strings = [];
+  var longest = '';
+  for (var i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'string'){
+      strings.push(arr[i]); 
+    }
+  }
+  if (strings.length > 0){
+    longest = strings[0];
+  }
+  for (var j = 0; j < strings.length; j++){
+    if (strings[j].length > longest.length){
+      longest = strings[j];
+    }
+  }
+  return longest;
+}
+
+//Write a function called "getLargestNumberAmongMixedElements". 
+//
+//Given any array, "getLargestNumberAmongMixedElements" returns the largest number in the given array.
+//
+//Notes:
+//* The array might contain values of a type other than numbers.
+//* If the array is empty, it should return 0.
+//* If the array contains no numbers, it should return 0.
+//
+//var output = getLargestNumberAmongMixedElements([3, 'word', 5, 'up', 3, 1]);
+//console.log(output); // --> 5
+
+function getLargestNumberAmongMixedElements(arr) { 
+  var largest = 0;
+  var nums = [];
+  for (var i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'number'){
+      nums.push(arr[i]);
+    }
+  }
+  if (nums.length > 0){
+    largest = nums[0];
+  }
+  for (var j = 0; j < nums.length; j++){
+    if (nums[j] > largest){
+      largest = nums[j];
+    }
+  }
+  return largest;
+}
+
+//Write a function called "computeSummationToN".
+//
+//Given a number, "computeSummationToN" returns the sum of sequential numbers leading up to the given number, beginning at 0.
+//
+//Notes:
+//* If n = 4, it should calculate the sum of 1 + 2 + 3 + 4, and return 10.
+//
+//var output = computeSummationToN(6);
+//console.log(output); // --> 21
+
+function computeSummationToN(n) {
+  var sum = 0;
+  var nums = [];
+  for (var i = n; i > -1; i--){
+    nums.push(n - i);
+  }
+  for (var j = 0; j < nums.length; j++){
+    sum += nums[j];
+  }
+  return sum;
+}
+
+//Write a function called "convertScoreToGrade".
+//
+//Given a score, "convertScoreToGrade" returns a string representing the letter grade corresponding to the given score.
+//
+//Notes:
+//* (100 - 90) --> 'A'
+//* (89  - 80) --> 'B'
+//* (79  - 70) --> 'C'
+//* (69  - 60) --> 'D'
+//* (59  -  0) --> 'F'
+//* If the given score is greater than 100 or less than 0, it should return 'INVALID SCORE'.
+//
+//var output = convertScoreToGrade(91);
+//console.log(output); // --> 'A'
+
+function convertScoreToGrade(score) {
+  if (score >= 90 && score <= 100){
+    return 'A';
+  }else if (score >= 80 && score < 90){
+    return 'B';
+  }else if (score >= 70 && score < 80){
+    return 'C';
+  }else if (score >= 60 && score < 70){
+    return 'D';
+  }else if (score >= 0 && score < 60){
+    return 'F';
+  }else {
+    return 'INVALID SCORE';
+  }
+}
