@@ -2379,3 +2379,279 @@ function convertScoreToGrade(score) {
     return 'INVALID SCORE';
   }
 }
+
+//Write a function called "convertScoreToGradeWithPlusAndMinus".
+//
+//Given a score, "convertScoreToGradeWithPlusAndMinus" returns a string representing the letter grade corresponding to the given score.
+//
+//Notes:
+//* (100 - 90) --> 'A'
+//* (89  - 80) --> 'B'
+//* (79  - 70) --> 'C'
+//* (69  - 60) --> 'D'
+//* (59  -  0) --> 'F'
+//* If the given score is greater than 100 or less than 0, it should return 'INVALID SCORE'.
+//* If the score is between the 0 and 2 (inclusive) of a given range, return the letter with a '-'
+//* If the score is between the 8 and 9 (inclusive) of a given range, return the letter with a '+'
+//* There are is no F+ and there is no F-.
+//
+//var output = convertScoreToGradeWithPlusAndMinus(91);
+//console.log(output); // --> 'A-'
+
+function convertScoreToGradeWithPlusAndMinus(score) {
+  if (score <= 100 && score >= 98) {
+    return "A+";
+    
+  }else if (score <= 97 && score >= 93) {
+    return "A";
+    
+  }else if (score <= 92 && score >= 90) {
+    return "A-";
+    
+  }else if (score <= 89 && score >= 88) {
+    return "B+";
+    
+  }else if (score <= 87 && score >= 83) {
+    return "B";
+    
+  }else if (score <= 82 && score >= 80) {
+    return "B-";
+    
+  }else if (score <= 79 && score >= 78) {
+    return "C+";
+    
+  }else if (score <= 77 && score >= 73) {
+    return "C";
+    
+  }else if (score <= 72 && score >= 70) {
+    return "C-";
+    
+  }else if (score <= 69 && score >= 68) {
+    return "D+";
+    
+  }else if (score <= 67 && score >= 63) {
+    return "D";
+    
+  }else if (score <= 62 && score >= 60) {
+    return "D-";
+    
+  }else if (score <= 59 && score >= 0) {
+    return "F";
+    
+  }else {
+    return "INVALID SCORE";
+    
+  }
+}
+
+//Write a function called "computeFactorialOfN".
+//
+//Given a natural number (a whole number greater than 0), "computeFactorialOfN" returns its factorial.
+//
+//var output = computeFactorialOfN(3);
+//console.log(output); // --> 6
+//
+//var output = computeFactorialOfN(4);
+//console.log(output); // --> 24
+
+function computeFactorialOfN(n) {
+     if(n === 0) {
+        return 1;
+    } else {
+        return n * computeFactorialOfN(n - 1);
+    }
+}
+
+//Write a function called "repeatString".
+//
+//Given a string and a number, "repeatString" returns the given string repeated the given number of times.
+//
+//var output = repeatString('code', 3);
+//console.log(output); // --> 'codecodecode'
+
+function repeatString(string, num) {
+  var outputs = [];
+  for (var i = 0; i < num; i++){
+    outputs.push(string);
+  }
+  var newString = outputs.join('');
+  return newString;
+}
+
+//Write a function called "getLongestOfThreeWords".
+//
+//Given 3 words, "getLongestOfThreeWords" returns the longest of three words. 
+//
+//Notes:
+//* If there is a tie, it should return the first word in the tie.
+//
+//var output = getLongestOfThreeWords('these', 'three', 'words');
+//console.log(output); // --> 'these'
+
+function getLongestOfThreeWords(word1, word2, word3) {
+  var longest = word1;
+  for (var i = 0; i < arguments.length; i++){
+    if (arguments[i].length > longest.length){
+      longest = arguments[i];
+    }
+  }
+  return longest;
+}
+
+//Write a function called "findShortestOfThreeWords".
+//
+//Given 3 strings, "findShortestOfThreeWords" returns the shortest of the given strings.
+//
+//Notes:
+//* If there are ties, it should return the first word in the parameters list.
+//
+//var output = findShortestOfThreeWords('a', 'two', 'three');
+//console.log(output); // --> 'a'
+
+function findShortestOfThreeWords(word1, word2, word3) {
+  var shortest = word1;
+  for (var i = 0; i < arguments.length; i++){
+    if (arguments[i].length < shortest.length){
+      shortest = arguments[i];
+    }
+  }
+  return shortest;
+}
+
+//Write a function called "computeCompoundInterest".
+//
+//Given a principal, an interest rate, a compounding frequency, and a time (in years), "computeCompoundInterest" returns the amount of compound interest generated.
+//
+//var output = computeCompoundInterest(1500, .043, 4, 6);
+//console.log(output); // --> 438.8368221341061
+
+function computeCompoundInterest(principal, interestRate, compoundingFrequency, timeInYears) {
+  var formula = Math.pow(1 + (interestRate / compoundingFrequency), (compoundingFrequency * timeInYears));
+  var total = principal * formula;
+  var output = total - principal;
+  return output;
+}
+
+//Write a function called "modulo".
+//
+//Given 2 numbers, "modulo" returns the remainder after dividing num1 by num2.
+//
+//It should behave as described in the canonical documentation (MDN) for the JavaScript remainder operator:
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder_()
+//
+//Notes:
+//* Do NOT use the actual built-in modulo (aka "remainder") operator (%) in your implementation.
+//* 0 % ANYNUMBER = 0.
+//* ANYNUMBER % 0 = NaN.
+//* If either operand is NaN, then the result is NaN.
+//* Modulo always returns the sign of the first number.
+//
+//var output = modulo(25, 4);
+//console.log(output); // --> 1
+
+function modulo(num1, num2) {
+  if (num1 < 0 && num2 > 0){
+    num2 *= -1;
+  }
+  if (num2 < 0 && num1 > 0){
+    num2 *= -1;
+  }
+  var divide = Math.floor(num1 / num2);
+  var mult = divide * num2;
+  var result = num1 - mult;
+  return result;
+}
+
+//Write a function called "multiply".
+//
+//Given 2 numbers, "multiply" returns their product.
+//
+//Notes:
+//* It should not use the multiply operator (*).\
+//
+//var output = multiply(4, 7);
+//console.log(output); // --> 28
+
+function multiply(num1, num2) {
+  var numb1 = num1;
+  var iterations = 1;
+   var output = num1;
+   if (num1 === 0 || num2 === 0){
+     output = 0;
+   }
+   if (num2 < 0){
+     num2 = Math.abs(num2);
+     num1 -= num1;
+     num1 -= numb1;
+     iterations = -1;
+   }
+  for (var i = 0; i < num2 - iterations; i++){
+    output += num1;    
+  }
+  
+  return output;
+}
+
+//Write a function called "isOddWithoutModulo".
+//
+//Given a number, "isOddWithoutModulo" returns whether the passed in number is odd.
+//
+//Note:
+//* It does so without using the modulo operator (%). 
+//* It should work for negative numbers and zero.
+//
+//var output = isOddWithoutModulo(17);
+//console.log(output); // --> true
+
+function isOddWithoutModulo(num) {
+  var numDiv = Math.floor(num / 2);
+  var numCheck = numDiv * 2;
+  if(numCheck === num){
+    return false;
+  }else {
+    return true;
+  }
+}
+
+//Write a function called "isEvenWithoutModulo".
+//
+//Given a number, "isEvenWithoutModulo" returns whether it is even. 
+//
+//Notes:
+//* It does so without using the modulo operator (%). 
+//* It should work for negative numbers and zero.
+//
+//var output = isEvenWithoutModulo(8);
+//console.log(output); // --> true
+
+function isEvenWithoutModulo(num) {
+  var numDiv = Math.floor(num / 2);
+  var numCheck = numDiv * 2;
+  if(numCheck === num){
+    return true;
+  }else {
+    return false;
+  }
+}
+
+//Write a function called "multiplyBetween".
+//
+//Given 2 integers, "multiplyBetween" returns the product between the two given integers, beginning at num1, and excluding num2.
+//
+//Notes:
+//* The product between 1 and 4 is 1 * 2 * 3 = 6.
+//* If num2 is not greater than num1, it should return 0.
+//
+//var output = multiplyBetween(2, 5);
+//console.log(output); // --> 24
+
+function multiplyBetween(num1, num2) {
+  var output = 0;
+  if (num2 > num1){
+    output = 1;
+    for (var i = num1; i < num2; i++){
+      output *=  i;
+    }
+  }
+  return output;
+}
